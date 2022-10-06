@@ -1,0 +1,13 @@
+mixin button(title, type="button")
+  button(type=type, class="btn")&attributes(attributes)
+    if title==="Назад"
+      <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 10.0762L2 5.53804L7 0.999901" stroke="#1F2E4D" stroke-width="1.5"/>
+      </svg>
+
+    span.btn__text= title
+
+    if title==="Далее"
+      <svg width="8" height="11" viewBox="0 0 8 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1 1L6 5.53814L1 10.0763" stroke="#1F2E4D" stroke-width="1.5"/>
+      </svg>

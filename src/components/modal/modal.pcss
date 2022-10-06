@@ -1,0 +1,97 @@
+.modal {
+  position: relative;
+  max-height: 90%;
+
+  &-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(31, 46, 77, 0.8);
+    z-index: 999;
+    pointer-events: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &__close {
+    --close-w: 25px;
+    width: var(--close-w);
+    height: var(--close-w);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: transform .3s ease-in-out;
+
+    &-right,
+    &-left {
+      display: block;
+      position: absolute;
+      width: var(--close-w);
+      height: 2px;
+      background-color: var(--color-gray);
+    }
+
+    &-right {
+      transform: rotate(-45deg);
+    }
+
+    &-left {
+      transform: rotate(45deg);
+    }
+  }
+
+  &__content {
+    background-color: var(--color-white);
+    border-radius: 10px;
+    padding: 30px 30px 30px 50px;
+  }
+
+  &__header {
+    text-align: left;
+    width: 98%;
+    margin-bottom: 10px;
+
+    & > h3 {
+      font-weight: 800;
+      font-size: 25px;
+      line-height: 1.2;
+      color: var(--color-blue);
+    }
+    & > h4 {
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+    & > p {
+      font-weight: 400;
+      font-size: 10px;
+      color: #828282;
+    }
+  }
+
+  &__main {
+    margin-bottom: 10px;
+  }
+}
+
+.victorina {
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    margin-bottom: 20px;
+
+    & > .checkbox {
+      margin-right: 12px;
+    }
+  }
+}

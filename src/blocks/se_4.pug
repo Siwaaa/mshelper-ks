@@ -1,0 +1,39 @@
+include ../components/tomography-button/tomography.pug
+
+section(
+  class="se_4" 
+  v-show="store.currentPage == 4" 
+  v-effect="if(store.currentPage == 4) store.modalClassActual = 'tomography' "
+)
+  include ../components/navbar/navbar.pug
+  .se_4__content
+    .timeline
+      .timeline__header 
+        button(
+          v-for="(val, index) in listTab"
+          type="button"
+          class="timeline__tab"
+          :class="{ active: store.currentTab == index }"
+          @click="store.setTab(index)"
+        ) {{ val.year }}
+      .timeline__main
+
+        .timeline__tomography 
+          .timeline__tomography-item
+            +tomography-button('mrt.png', 'mrt')
+            span МРТ
+          .timeline__tomography-item
+            +tomography-button('mrt_2.svg', 'sled')
+            span Исследование 
+
+        .timeline__main-wrap
+          ul
+            li(v-for="val in listTab[store.currentTab].ul") {{ val }}
+
+          div(class="timeline__desc" v-if="listTab[store.currentTab].desc") 
+            p {{ listTab[store.currentTab].desc }}
+
+        p(
+          class="timeline__footnote"
+          v-if="listTab[store.currentTab].footnote"
+        ) {{ listTab[store.currentTab].footnote }}

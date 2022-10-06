@@ -1,0 +1,36 @@
+.tomography {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 63px;
+  height: 63px;
+  background: var(--color-gradient);
+  border-radius: 50%;
+  overflow: hidden;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 59px;
+    height: 59px;
+    background: var(--color-white);
+    border-radius: inherit;
+    transition: all .3s ease;
+
+    &:hover {
+      background: #e7edfe;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    &:active {
+      background: #d0dcfc;
+      box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    & > img {
+      width: 41px;
+      height: 41px;
+      object-fit: contain;
+    }
+  }
+}

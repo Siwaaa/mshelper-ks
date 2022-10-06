@@ -1,0 +1,47 @@
+extends ../../layouts/modal.pug
+include ../button/button.pug
+
+block content
+  .modal__header 
+    h3 Существует множество методов оценки прогрессирования РС, вместе с тем все они недостаточно точны
+
+  .modal__main
+    .methodsPC 
+      .methodsPC__item 
+        .methodsPC__img 
+          img(src="./img/m1.png", alt="")
+        .methodsPC__text 
+          p EDSS
+      .methodsPC__item 
+        .methodsPC__img 
+          img(src="./img/m2.png", alt="")
+        .methodsPC__text 
+          p МРТ – атрофия головного мозга, «черные» дыры
+      .methodsPC__item 
+        .methodsPC__img 
+          img(src="./img/m3.png", alt="")
+        .methodsPC__text 
+          p Обострения – снижение числа
+      .methodsPC__item 
+        .methodsPC__img 
+          img(src="./img/m4.png", alt="")
+        .methodsPC__text 
+          p Оценка моторики
+      .methodsPC__item 
+        .methodsPC__img 
+          img(src="./img/m5.png", alt="")
+        .methodsPC__text 
+          p Когнитивные тесты 
+      .methodsPC__item 
+        .methodsPC__img 
+          img(src="./img/m6.png", alt="")
+        .methodsPC__text 
+          p T25-FW
+      .methodsPC__item 
+        .methodsPC__img 
+          img(src="./img/m7.png", alt="")
+        .methodsPC__text 
+          p MSProDiscuss
+
+  .modal__footer
+    +button("Далее")

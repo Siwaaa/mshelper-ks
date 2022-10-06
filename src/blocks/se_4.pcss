@@ -1,0 +1,141 @@
+.se_4 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__content {
+    flex-grow: 2;
+  }
+}
+
+.timeline {
+  /* проверить отступы от navbar везде */
+  padding-top: 35px; 
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+
+  }
+
+  &__tab {
+    width: 113px;
+    height: 35px;
+    margin-right: 12px;
+    font-weight: 800;
+    color:rgba(31, 46, 77, 0.5);
+    transition: color .3s ease;
+
+    &:hover {
+      color: var(--color-dark);
+    }
+
+    &.active {
+      position: relative;
+      color: var(--color-dark);
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: inline-block;
+        width: 100%;
+        height: 4px;
+        background: var(--color-orange);
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -17px;
+        transform: translate(-50%, 0);
+        display: inline-block;
+        border: 10px solid transparent; 
+        border-top: 10px solid var(--color-orange);
+        z-index: 5;
+      }
+    }
+  }
+
+  &__main {
+    position: relative;
+    background: var(--color-gray-light);
+    flex-grow: 2;
+    padding-left: 10%; /* повторяется отступ с основным */
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-wrap {
+      max-width: 800px;
+    }
+
+    & ul {
+      margin-top: 50px;
+
+      & > li {
+        list-style-type: disc;
+        list-style-position: outside;
+        margin-bottom: 30px;
+        margin-left: 20px;
+  
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__tomography {
+    position: absolute;
+    right: 30px;
+    display: flex;
+    &-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    
+      &:first-child {
+        margin-right: 8px;
+      }
+
+      & > span {
+        font-weight: 800;
+        font-size: 11px;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 8px;
+      }
+    }
+  }
+
+  &__desc {
+    position: relative;
+    white-space: pre;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 55px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -14px;
+      display: inline-block;
+      width: 155px;
+      height: 4px;
+      background: var(--color-gradient);
+      transform: rotate(180deg);
+    }
+  }
+
+  &__footnote {
+    white-space: pre;
+    font-weight: 400;
+    font-size: 10px;
+  }
+}

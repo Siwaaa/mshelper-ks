@@ -1,0 +1,22 @@
+nav.navbar 
+  ul.navbar__wrapper
+    li(
+      v-for="val, index in listNav" 
+      class="navbar__item"
+    )
+      //- доступы к этапам навбара, как они будут выставляться?
+      button(
+        type="button" 
+        :class="{active: store.currentPage - store.startNavbarPage == index }"
+        :disabled="index > 3"
+        @click="store.setNavbar(index)"
+      ) 
+        span {{val}}
+      //- svg(class="block__triangle" viewBox="0 0 45 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg")
+      //-   polyline(
+      //-     points="0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%"
+      //-     stroke="blue" 
+      //-     stroke-width="4"
+      //-     vector-effect="non-scaling-stroke"
+      //-   )
+      .block__triangle

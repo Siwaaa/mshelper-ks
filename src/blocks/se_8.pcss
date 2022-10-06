@@ -1,0 +1,38 @@
+.se_8 {
+  position: relative;
+  &__content {
+    padding-left: 10%;
+    padding-top: 3%;
+
+    & > .title-h3 {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__info {
+    position: relative;
+    line-height: 1.3; 
+
+    max-width: 588px;
+    &::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      display: inline-block;
+      width: 6px;
+      height: 102%;
+      background: var(--color-gradient);
+      transform: rotate(180deg);
+    }
+
+    & > h4 {
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    & li {
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+  }
+}

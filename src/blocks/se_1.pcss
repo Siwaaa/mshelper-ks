@@ -1,0 +1,47 @@
+.se_1 {
+  position: relative;
+  &__content {
+    padding-left: 10%;
+    padding-top: 11%;
+  }
+
+  &__info {
+    position: relative;
+    margin-top: 7%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      display: inline-block;
+      width: 6px;
+      height: 110%;
+      background: var(--color-gradient);
+      transform: rotate(180deg);
+    }
+
+    &-item {
+      &:first-child {
+        margin-bottom: 30px;
+      }
+
+      & > p {
+        font-weight: 500;
+      }
+      & > strong {
+        font-weight: 800;
+      }
+    }
+  }
+
+  &__img {
+
+    & > img {
+      object-position: 40% center;
+    }
+  }
+
+  & .title-h1 {
+    line-height: 1;
+  }
+}

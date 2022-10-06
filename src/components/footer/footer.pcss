@@ -1,0 +1,32 @@
+.footer {
+  --footer-h: 4px;
+  /* background-color: aliceblue; */
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      height: var(--footer-h);
+      background: var(--color-gradient);
+      transform: rotate(180deg);
+      margin-bottom: 30px;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    padding-left: 25px;
+    padding-top: calc(30px + var(--footer-h));
+
+    & > .btn:first-child {
+      margin-right: 25px;
+    }
+  }
+}

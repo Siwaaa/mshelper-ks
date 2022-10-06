@@ -1,0 +1,42 @@
+extends ../../layouts/modal.pug
+
+include ../button/button.pug
+
+block content
+  .modal__header 
+    h3 {{ store.modalTomography == 'mrt' ? 'МРТ в динамике' :  'Результаты проведенных исследований' }}
+
+  .modal__main
+    .sw_1 
+      div(class="swiper__mrt swiper" v-if="store.modalTomography === 'mrt'")
+        .swiper__mrt__content.swiper-wrapper
+          //- какое поведение закладывается если нет мрт или оно одно?
+          each val in [1,2,3,4]
+            .swiper__mrt__item.swiper-slide
+              img(src="./img/sw_1.png", alt="")
+              .swiper__mrt__text
+                h4 2007
+                p МРТ головного мозга с контрастным усилением 
+                span Единичный очаг в левом семиовальном центре
+        .swiper-button-next
+        .swiper-button-prev
+      .swiper-pagination.swiper__mrt_pagi
+    .sw_2
+      div(class="swiper__sled swiper" v-if="store.modalTomography === 'sled'")
+        .swiper__sled__content.swiper-wrapper
+          //- какое поведение закладывается если нет мрт или оно одно?
+          each val in [1,2,3,4]
+            .swiper__sled__item.swiper-slide
+              .swiper__sled__text
+                h4 2007
+                .swiper__sled-item
+                  strong 13 мая
+                  p МРТ головного мозга с контрастным усилением 
+                  span Единичный очаг в левом семиовальном центре
+                .swiper__sled-item
+                  strong 4 декабря
+                  p Анализ мочи, БХ анализ крови, гормоны ЩЖ 
+                  span Без  отклонений. 
+        .swiper-button-next
+        .swiper-button-prev
+      .swiper-pagination.swiper__sled_pagi

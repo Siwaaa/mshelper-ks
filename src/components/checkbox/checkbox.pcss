@@ -1,0 +1,56 @@
+.checkbox {
+  --check-size: 20px;
+  display: inline-flex;
+  width: var(--check-size);
+  height: var(--check-size);
+  cursor: pointer;
+  user-select: none;
+  vertical-align: bottom;
+  position: relative;
+  box-sizing: border-box;
+
+  &-hidden-accessible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+
+    & input {
+      transform: scale(0);
+    }
+  }
+
+  &-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--color-dark);
+    background: #ffffff;
+    width: var(--check-size);
+    height: var(--check-size);
+    /* color: ; */
+    border-radius: 5px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+
+    &:hover {
+      border-color: var(--color-blue);
+    }
+
+    &.c-focus {
+      outline: 0 none;
+      outline-offset: 0;
+      box-shadow: 0 0 0 0.2rem var(--color-blue-light);
+      border-color: var(--color-blue);
+    }
+  }
+
+  &-icon {
+    &::before {
+      /* здесь иконка */
+    }
+  }
+}

@@ -1,0 +1,4 @@
+mixin tomography-button(icon, typeModal='mrt')
+  button(type="button" class="tomography" @click=`store.onModal('${typeModal}')`) 
+    .tomography__content 
+      img(src=`./img/${icon}`, alt="")

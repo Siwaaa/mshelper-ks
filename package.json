@@ -1,0 +1,39 @@
+{
+  "name": "landing-lestnica",
+  "version": "1.0.0",
+  "author": "",
+  "license": "MIT",
+  "source": [
+    "/src/index.pug"
+  ],
+  "browserslist": "> 0.5%, last 5 versions, not ie < 9",
+  "scripts": {
+    "serve": "parcel --port 8080 --open chrome",
+    "build": "rm -rf public_html/* && rm -rf .parcel-cache/* && parcel build --public-url ./ --dist-dir public_html && cp -a src/assets/. public_html"
+  },
+  "devDependencies": {
+    "@parcel/resolver-glob": "^2.3.2",
+    "@parcel/transformer-pug": "^2.3.2",
+    "@parcel/transformer-webmanifest": "^2.6.2",
+    "autoprefixer": "^10.4.12",
+    "jstransformer-markdown-it": "^2.1.0",
+    "parcel": "^2.3.2",
+    "postcss": "^8.4.17",
+    "postcss-custom-media": "^8.0.0",
+    "postcss-easings": "^3.0.1",
+    "postcss-modules": "^4.3.1",
+    "postcss-nested": "^5.0.6",
+    "smoothscroll-polyfill": "^0.4.4",
+    "swiper": "^8.4.2"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-easings": {},
+      "autoprefixer": {},
+      "postcss-nested": {},
+      "postcss-custom-media": {
+        "importFrom": "./src/custom-media.css"
+      }
+    }
+  }
+}

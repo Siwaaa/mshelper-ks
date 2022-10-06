@@ -1,0 +1,25 @@
+.se_2 {
+  &__content {
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+    padding-top: 15vh; /* повторяется стиль часто */
+  }
+
+  &__img {
+    margin-right: 60px;
+  }
+  &__info {
+    & > * {
+      display: block;
+      margin-bottom: 20px;
+    }
+    & > p {
+      max-width: 350px;
+      & b {
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+    }
+  }
+}

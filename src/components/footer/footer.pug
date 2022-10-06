@@ -1,0 +1,7 @@
+include ../button/button.pug
+
+footer.footer 
+  .footer__content
+    .footer__btns 
+      +button("Назад")(v-if="store.currentPage > 1" @click="store.prevPage()")
+      +button("Далее")(v-if="store.currentPage != finishedPage" @click="store.nextPage()")

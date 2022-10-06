@@ -1,0 +1,102 @@
+.modal-analiz {
+  & .modal__content  {
+    padding: 25px 35px;
+  }
+  /* повторяется с big3 */
+  & .modal__footer {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: 400;
+    font-size: 10px;
+    text-align: left;
+  }
+
+  & .modal__footnote {
+    max-width: 80%;
+  }
+}
+
+.analyzes {
+  /* после уточнения как формируются эти два списка сделать один общий класс */
+  &-1, &-2 {
+    display: flex;
+    align-items: center;
+    & > h4 {
+      text-align: left;
+      font-weight: 700;
+      font-size: 15px;     
+      line-height: 1.3;
+      color: var(--color-blue);
+      order: 3;
+    }
+  }
+
+  &__block {
+    position: relative;
+    max-width: 76%;
+    padding: 16px;
+    border-radius: 10px;
+    background: #F2F8FD;
+    margin-bottom: 10px;
+    margin-right: 5%;
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      display: inline-block;
+      width: 11px;
+      height: 90%;
+      transform: translate(0, -50%);
+      border-top: 1px solid var(--color-blue); 
+      border-right: 1px solid var(--color-blue); 
+      border-bottom: 1px solid var(--color-blue); 
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    background: var(--color-gradient);
+    width: 100%;
+    height: auto;
+    padding: 1px;
+    border-radius: 10px;
+
+    &:not(:last-child) {
+      margin-bottom: 6px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 9px;
+    text-align: left;
+    padding: 10px 15px;
+    border-radius: inherit;
+    background-color: var(--color-white);
+
+    & > img {
+      width: 35px;
+      height: 35px;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+
+    & > h4 {
+      font-weight: 800;
+      margin-right: 50px;
+    }
+
+    & > p {
+
+    }
+  }
+}

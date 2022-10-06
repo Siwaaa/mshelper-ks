@@ -1,0 +1,38 @@
+doctype html
+html(lang="ru")
+  head
+    title MShelper
+
+    link(rel='stylesheet', href='./index.pcss')
+
+    //- script(src="https://unpkg.com/petite-vue@0.4.1/dist/petite-vue.iife.js" defer init)
+    script(src='index.js' defer type="module")
+
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="MShelper – информационный портал")
+
+    meta(name="theme-color" content="#000000")
+    
+  body 
+    div(id="app" class="container" v-scope @vue:mounted="console.log('mounted on: ', $el)" data-activeslide="" ref="rootEl" v-effect="store.rootEl = $refs.rootEl")
+      main
+        include ./blocks/se_1.pug
+        include ./blocks/se_2.pug
+        include ./blocks/se_3.pug
+        include ./blocks/se_4.pug
+        include ./blocks/se_5.pug
+        include ./blocks/se_6.pug
+        include ./blocks/se_7.pug
+        include ./blocks/se_8.pug
+        include ./blocks/se_9.pug
+        include ./blocks/se_10.pug
+      include ./components/footer/footer.pug
+      //- include ./components/modal/modal-tomography.pug
+      include ./layouts/modal.pug
+      //- include ./components/modal/modal-methodsPC.pug
+      //- include ./components/modal/modal-analiz.pug
+      //- include ./components/modal/modal-shema.pug
+      
+    

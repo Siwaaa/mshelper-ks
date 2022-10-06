@@ -1,0 +1,12 @@
+include ../components/button/button.pug
+
+section(class="se_10" v-show="store.currentPage == 10")
+  include ../components/navbar/navbar.pug
+
+  .se_10__content
+    h3.title-h3 Финальный слайд
+
+    +button("Закрыть")
+
+  .se_10__img.image-right 
+    img(src="./img/se_1.png", alt="")

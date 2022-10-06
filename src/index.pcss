@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Mulish:wght@400;500;700;800&display=swap');
+@import "./reset.css";
+@import "./blocks/*.pcss";
+@import "./components/**/*.pcss";
+
+html {
+  font-family: 'Mulish', sans-serif;
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  font-weight: 500;
+  font-size: 18px;
+
+  /* @media (--sm) {
+    font-size: 14px;
+  } */
+}
+html, body {
+  height: 100%;
+}
+
+#app {
+  /* color-adjust: economy; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  line-height: 1.5;
+}
+main {
+  /* flex: 1 1 auto; */
+  height: 630px;
+  overflow: hidden;
+}
+
+p > b {
+  font-weight: 800;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.title-h1 {
+  font-weight: 700;
+  font-size: 40px;
+  color: var(--color-blue);
+}
+.title-h2 {
+  font-weight: 500;
+  font-size: 35px;
+  color: var(--color-dark);
+}
+.title-h3 {
+  font-weight: 800;
+  font-size: 25px;
+  color: var(--color-blue);
+  text-transform: uppercase;
+}
+.image-right {
+  position: absolute;
+  right: -13%;
+  top: 15%;
+  width: 445px;
+  height: 445px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% center;
+  }
+}
+
+:root {
+  /* color */
+  --color-white: #FFFFFF;
+  --color-dark: #1F2E4D;
+  --color-gray:  #D1D1D6;
+  --color-gray-light: #F4F4F4;
+  --color-blue: #6A8CF9;
+  --color-blue-light: #E9EEFF;
+  --color-orange: #DF6449;
+  --color-gradient: linear-gradient(224deg, #DF6449 9%, #6A8CF9 91%);
+  /* font  */
+  --fz-btn: 16px;
+  --fz-h2: 32px;
+  --fz-min: 14px;
+  /* content */
+  --content-width: 1140px;
+  --container-padding-h: 60px;
+  --container-padding-w: 30px;
+
+  /* @media (--xl) {
+    --fz-h2: 22px;
+  }
+  @media (--md) {
+    --fz-btn: 14px;
+    --container-padding-w: 20px;
+  }
+  @media (--sm) {
+    --container-padding-h: 8%;
+    --container-padding-w: 10px;
+  }
+  @media (--xs) {
+    --fz-h2: 20px;
+  } */
+}
+
+/* Animation */
+*[data-animate-on-scroll] {
+  opacity: 0;
+}
+*[data-animate-on-scroll=animated] {
+  opacity: 1;
+  animation: wipe-enter 2s;
+}
+
+@keyframes wipe-enter {
+  0% {
+    opacity: 0;
+    transform: translate(0, -40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
