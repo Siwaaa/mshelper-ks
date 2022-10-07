@@ -184,6 +184,7 @@ const store = reactive({
 
     document.querySelectorAll('.checkbox-box').forEach(el => {
       el.classList.add('c-' + el.ariaChecked)
+      el.parentElement.nextSibling.classList.add('l-' + el.ariaChecked)
     })
   },
   backCheckboxAnswer() {
@@ -192,6 +193,8 @@ const store = reactive({
     document.querySelectorAll('.checkbox-box').forEach(el => {
       el.classList.remove('c-true')
       el.classList.remove('c-false')
+      el.parentElement.nextSibling.classList.remove('l-true')
+      el.parentElement.nextSibling.classList.remove('l-false')
     })
   }
 
