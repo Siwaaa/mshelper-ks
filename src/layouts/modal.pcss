@@ -4,6 +4,13 @@
 
   &.modal-mini {
     width: 55%;
+
+    @media (--lg) {
+      width: 80%;
+    }
+    @media (--sm) {
+      width: 90%;
+    }
   }
   &.modal-big {
     width: 92%;
@@ -36,6 +43,11 @@
     right: 15px;
     transition: transform .3s ease-in-out;
 
+    @media (--md) {
+      top: 7px;
+      right: 7px;
+    }
+
     &-right,
     &-left {
       display: block;
@@ -58,6 +70,10 @@
     background-color: var(--color-white);
     border-radius: 10px;
     padding: 30px 55px;
+
+    @media (--md) {
+      padding: 28px;
+    }
   }
 
   &__header {
@@ -66,7 +82,7 @@
 
     & > h3 {
       font-weight: 800;
-      font-size: 25px;
+      font-size: var(--fz-h3);
       line-height: 1.2;
       color: var(--color-blue);
     }

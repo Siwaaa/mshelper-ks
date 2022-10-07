@@ -6,18 +6,29 @@ Swiper.use([Lazy, Pagination, Navigation])
 export function initSwiper(type) {
   if (type == 'mrt') {
     return new Swiper('.swiper__mrt', {
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 30,
       grabCursor: true,
-      // centerInsufficientSlides: true,
-      // centeredSlides: true,
-      // centeredSlidesBounds: true,
       speed: 800,
       watchSlidesProgress: true,
       preloadImages: false,
       lazy: {
         enabled: true,
         checkInView: true
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        650: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        // when window width is >= 1100px
+        1100: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        }
       },
       navigation: {
         nextEl: '.swiper-button-next',
@@ -31,18 +42,29 @@ export function initSwiper(type) {
   
   if (type== 'sled') { 
     return new Swiper('.swiper__sled', {
-    slidesPerView: 3,
+    slidesPerView: 1,
     spaceBetween: 30,
     grabCursor: true,
-    // centerInsufficientSlides: true,
-    // centeredSlides: true,
-    // centeredSlidesBounds: true,
     speed: 800,
     watchSlidesProgress: true,
     preloadImages: false,
     lazy: {
       enabled: true,
       checkInView: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+      650: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      // when window width is >= 1100px
+      1100: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      }
     },
     navigation: {
       nextEl: '.swiper-button-next',

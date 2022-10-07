@@ -8,6 +8,11 @@
   border-radius: 50%;
   overflow: hidden;
 
+  @media (--md) {
+    width: 42px;
+    height: 42px;
+  }
+
   &__content {
     display: flex;
     justify-content: center;
@@ -17,6 +22,11 @@
     background: var(--color-white);
     border-radius: inherit;
     transition: all .3s ease;
+
+    @media (--md) {
+      width: 38px;
+      height: 38px;
+    }
 
     &:hover {
       background: #e7edfe;
@@ -31,6 +41,11 @@
       width: 41px;
       height: 41px;
       object-fit: contain;
+
+      @media (--md) {
+        width: 24px;
+        height: 24px;
+      }
     }
   }
 }

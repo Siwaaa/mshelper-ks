@@ -2,8 +2,11 @@ include ../components/button/button.pug
 
 section(class="se_11" v-show="store.currentPage == 11")
 
-  .se_11__content
+  .se_11__content.se__content
     h3.title-h3 Финальный слайд
+
+    .se_11__img-mob.image-mob
+      img(src="./img/se_1.png", alt="")
 
     +button("Закрыть")
 

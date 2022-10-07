@@ -4,6 +4,11 @@
     padding-top: 35px;
     padding-left: 10%;
     padding-right: 10%;
+
+    @media (--sm) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 
   & .modal__header {
@@ -17,6 +22,14 @@
     position: absolute;
     right: 20px;
     bottom: 30px;
+
+    @media (--lg) {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      margin-top: 30px;
+      text-align: center;
+    }
   }
 }
 
@@ -25,11 +38,15 @@
   --row-gap: 25px;
   display: flex;
   align-items: center;
-  /* justify-content: center; */
   flex-wrap: wrap;
   /* gap polyfill for flexbox */
   margin-left: calc(-1 * var(--column-gap, 0));
   margin-top: calc(-1 * var(--row-gap, 0));
+
+  @media (--lg) {
+    --column-gap: 40px;
+    justify-content: center;
+  }
 
   &__item {
     --methodsPC-w: 156px;
@@ -37,6 +54,13 @@
     /* gap polyfill for flexbox */
     margin-left: var(--column-gap, 1px);
     margin-top: var(--row-gap, 1px);
+
+    @media (--lg) {
+      --methodsPC-w: 136px;
+    }
+    @media (--xs) {
+      --methodsPC-w: 116px;
+    }
   }
 
   &__img {
@@ -45,6 +69,10 @@
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: 5px;
+
+    @media (--lg) {
+      height: 108px;
+    }
 
     & > img {
       width: 100%;
@@ -60,7 +88,16 @@
     font-weight: 700;
     font-size: 12px;
     text-align: left;
+    text-overflow: ellipsis;
+    overflow: hidden;
     border-radius: 6px;
     padding: 10px 15px;
+
+    @media (--lg) {
+      padding: 8px 10px;
+    }
+    @media (--xs) {
+      font-size: 10px;
+    }
   }
 }

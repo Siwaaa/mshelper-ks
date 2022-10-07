@@ -14,6 +14,9 @@ html {
   @media (--lg) {
     font-size: 16px;
   }
+  @media (--md) {
+    font-size: 14px;
+  }
   @media (--xs) {
     font-size: 12px;
   }
@@ -23,7 +26,6 @@ html, body {
 }
 
 #app {
-  /* color-adjust: economy; */
   display: flex;
   flex-direction: column;
   min-height: 100%;
@@ -32,12 +34,13 @@ html, body {
 main {
   /* flex: 1 1 auto; */
   height: 630px;
-  /* height: fit-content; */
-  overflow: hidden;
-}
+  overflow-x: hidden;
+  overflow-y: auto;
 
-p > b {
-  font-weight: 800;
+  @media (--md) {
+    /* полная высота за вычетом футера */
+    height: calc(100vh - 71px);
+  }
 }
 
 .container {
@@ -46,27 +49,21 @@ p > b {
   margin-right: auto;
   margin-left: auto;
 }
+
 .se {
   position: relative;
   height: 100%;
+
+  &__content {
+    padding-left: 10%;
+
+    @media (--md) {
+      padding-left: var(--container-padding-w);
+      padding-right: var(--container-padding-w);
+    }
+  }
 }
 
-.title-h1 {
-  font-weight: 700;
-  font-size: var(--fz-h1);
-  color: var(--color-blue);
-}
-.title-h2 {
-  font-weight: 500;
-  font-size: var(--fz-h2);
-  color: var(--color-dark);
-}
-.title-h3 {
-  font-weight: 800;
-  font-size: var(--fz-h3);
-  color: var(--color-blue);
-  text-transform: uppercase;
-}
 .image-right {
   position: absolute;
   right: -13%;
@@ -92,6 +89,9 @@ p > b {
   @media (--lg) {
     right: -20%;
   }
+  @media (--md) {
+    display: none;
+  }
 
   & > img {
     width: 100%;
@@ -99,6 +99,57 @@ p > b {
     object-fit: cover;
     object-position: 50% center;
   }
+}
+.image-mob {
+  display: none;
+
+  @media (--md) {
+    align-self: center;
+    display: block;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 50px;
+  }
+  @media (--xs) {
+    margin-bottom: 30px;
+    width: 200px;
+    height: 200px;
+  }
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% center;
+  }
+}
+
+/* Typography */
+.title-h1 {
+  font-weight: 700;
+  line-height: 1;
+  font-size: var(--fz-h1);
+  color: var(--color-blue);
+}
+.title-h2 {
+  font-weight: 500;
+  font-size: var(--fz-h2);
+  color: var(--color-dark);
+}
+.title-h3 {
+  font-weight: 800;
+  font-size: var(--fz-h3);
+  color: var(--color-blue);
+  text-transform: uppercase;
+
+  @media (--md) {
+    text-align: center;
+  }
+}
+p > b {
+  font-weight: 800;
 }
 
 :root {
@@ -117,7 +168,6 @@ p > b {
   --fz-h3: 25px;
   /* content */
   --content-width: 1140px;
-  --container-padding-h: 60px;
   --container-padding-w: 30px;
 
   @media (--xl) {
@@ -126,17 +176,18 @@ p > b {
   }
   @media (--lg) {
     --fz-h3: 21px;
-    --container-padding-w: 20px;
   }
   @media (--md) {
-    --container-padding-w: 20px;
+    --fz-h1: 28px;
+    --fz-h2: 24px;
   }
   @media (--sm) {
-    --container-padding-h: 8%;
-    --container-padding-w: 10px;
+    --fz-h3: 18px;
+    --container-padding-w: 20px;
   }
   @media (--xs) {
-    --fz-h2: 20px;
+    --fz-h1: 18px;
+    --fz-h2: 16px;
   }
 }
 

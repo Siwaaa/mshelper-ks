@@ -4,7 +4,7 @@ import { initSwiper } from './components/modal/swiper.js'
 const bodyDOM = document.querySelector('body')
 
 const store = reactive({
-  currentPage: 7,
+  currentPage: 4,
   pagesWithValidation: [
     {
       id: 7,
