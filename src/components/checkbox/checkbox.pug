@@ -1,6 +1,14 @@
-div(class="checkbox" @click="onClick($event)")
-  div(class="checkbox-hidden-accessible")
-    input(ref="input" type="checkbox" :checked="value === true" @focus="onFocus()" @blur="onBlur()" :aria-labelledby="ariaLabelledBy")
-    
-  div(ref="box" class="checkbox-box" role="checkbox" :aria-checked="value === true")
-    span(class="p-checkbox-icon")
+mixin checkbox()
+  div(
+    ref="checkbox" 
+    class="checkbox" 
+    @click="store.onClickCheckbox($event)"
+  )
+    div(class="checkbox-hidden-accessible")
+      input(
+        class="iin"
+        type="checkbox" 
+        v-effect="console.log($refs.checkbox, $el.checked)"
+      )
+    div(role="checkbox"  :class="store.checkboxClasses()")&attributes(attributes)
+      span(class="p-checkbox-icon")

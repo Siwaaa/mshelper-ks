@@ -4,7 +4,7 @@ import { initSwiper } from './components/modal/swiper.js'
 const bodyDOM = document.querySelector('body')
 
 const store = reactive({
-  currentPage: 1,
+  currentPage: 7,
   pagesWithValidation: [
     {
       id: 7,
@@ -86,7 +86,7 @@ const store = reactive({
     },
     shema: {
       title: 'Через сколько месяцев по сравнению с датой первого зафиксированного нарастания неврологических нарушений можно зафиксировать подтверждённое прогрессирование инвалидизации?',
-      titleDesc: 'Возможно несколько вариантов ответа',
+      titleDesc: '',
       qa: [
         {
           text: 'Через 1 месяц',
@@ -165,7 +165,36 @@ const store = reactive({
   },
   modalClassSize() {
     return ['modal-' + this.modalSize]
+  },
+  onClickCheckbox(event) {
+    console.log('sd', event);
+    const t = event.target
+
+    if(this.modalStep === 1) {
+      t.classList.toggle('c-true')
+      t.classList.remove('c-false')
+    }
+
+  },
+  checkboxClasses() {
+    return ['checkbox-box']
+  },
+  nextCheckboxAnswer() {
+    this.modalStep = 2;
+
+    document.querySelectorAll('.checkbox-box').forEach(el => {
+      el.classList.add('c-' + el.ariaChecked)
+    })
+  },
+  backCheckboxAnswer() {
+    this.modalStep = 1;
+
+    document.querySelectorAll('.checkbox-box').forEach(el => {
+      el.classList.remove('c-true')
+      el.classList.remove('c-false')
+    })
   }
+
 })
 
 createApp({
