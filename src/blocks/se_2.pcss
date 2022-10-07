@@ -3,11 +3,28 @@
     display: flex;
     align-items: center;
     padding-left: 10%;
-    padding-top: 15vh; /* повторяется стиль часто */
+    height: 100%;
+    /* повторяется стиль часто */
+    /* padding-top: 15vh;  */
   }
 
   &__img {
+    --se-2-img: 315px;
+    width: var(--se-2-img);
+    height: var(--se-2-img);
     margin-right: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+
+    @media (--xl) {
+      --se-2-img: 270px;
+    }
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
   &__info {
     & > * {
