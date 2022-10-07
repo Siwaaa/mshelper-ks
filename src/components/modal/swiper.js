@@ -40,7 +40,7 @@ export function initSwiper(type) {
     });
   }
   
-  if (type== 'sled') { 
+  if (type == 'sled') { 
     return new Swiper('.swiper__sled', {
     slidesPerView: 1,
     spaceBetween: 30,
@@ -65,6 +65,28 @@ export function initSwiper(type) {
         slidesPerView: 3,
         spaceBetween: 30,
       }
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+      el: ".swiper__sled_pagi",
+    },
+    })
+  }
+
+  if (type == 'analiz') { 
+    return new Swiper('.analyzes-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    grabCursor: true,
+    speed: 800,
+    watchSlidesProgress: true,
+    preloadImages: false,
+    lazy: {
+      enabled: true,
+      checkInView: true
     },
     navigation: {
       nextEl: '.swiper-button-next',
