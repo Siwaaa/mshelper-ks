@@ -1,6 +1,6 @@
 div(class="checkbox" @click="onClick($event)")
   div(class="checkbox-hidden-accessible")
-    input(ref="input" type="checkbox" :checked="value === true" v-bind="$attrs" @focus="onFocus()" @blur="onBlur()" :aria-labelledby="ariaLabelledBy")
+    input(ref="input" type="checkbox" :checked="value === true" @focus="onFocus()" @blur="onBlur()" :aria-labelledby="ariaLabelledBy")
     
   div(ref="box" class="checkbox-box" role="checkbox" :aria-checked="value === true")
     span(class="p-checkbox-icon")

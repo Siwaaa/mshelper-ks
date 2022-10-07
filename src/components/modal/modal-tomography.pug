@@ -1,14 +1,17 @@
-extends ../../layouts/modal.pug
-
 include ../button/button.pug
 
-block content
+div(
+  class="modal__content" 
+  v-if="store.modalClassActual == 'tomography'"
+  :class="store.modalClasses()"
+  v-effect="store.modalSize = 'big'"
+)
   .modal__header 
     h3 {{ store.modalTomography == 'mrt' ? 'МРТ в динамике' :  'Результаты проведенных исследований' }}
 
   .modal__main
-    .sw_1 
-      div(class="swiper__mrt swiper" v-if="store.modalTomography === 'mrt'")
+    div(class="sw_1" v-if="store.modalTomography === 'mrt'")
+      .swiper__mrt.swiper
         .swiper__mrt__content.swiper-wrapper
           //- какое поведение закладывается если нет мрт или оно одно?
           each val in [1,2,3,4]
@@ -18,11 +21,11 @@ block content
                 h4 2007
                 p МРТ головного мозга с контрастным усилением 
                 span Единичный очаг в левом семиовальном центре
-        .swiper-button-next
-        .swiper-button-prev
+      .swiper-button-next
+      .swiper-button-prev
       .swiper-pagination.swiper__mrt_pagi
-    .sw_2
-      div(class="swiper__sled swiper" v-if="store.modalTomography === 'sled'")
+    div(class="sw_2" v-if="store.modalTomography === 'sled'")
+      .swiper__sled.swiper
         .swiper__sled__content.swiper-wrapper
           //- какое поведение закладывается если нет мрт или оно одно?
           each val in [1,2,3,4]
@@ -37,6 +40,6 @@ block content
                   strong 4 декабря
                   p Анализ мочи, БХ анализ крови, гормоны ЩЖ 
                   span Без  отклонений. 
-        .swiper-button-next
-        .swiper-button-prev
+      .swiper-button-next
+      .swiper-button-prev
       .swiper-pagination.swiper__sled_pagi

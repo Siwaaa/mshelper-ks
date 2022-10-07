@@ -25,7 +25,90 @@ const store = reactive({
   currentTab: 0,
   modalTomography: null,
   swiperInstance: null,
+
   modalClassActual: null,
+  modalStep: 1,
+  modalQA: {
+    methodsPC: {
+      title: 'Какие методы, кроме шкалы EDSS можно использовать для оценки прогрессиирования заболевания?',
+      titleDesc: 'Возможно несколько вариантов ответа',
+      qa: [
+        {
+          text: 'SDMT',
+          correct: true,
+        },
+        {
+          text: 'Тест ходьбы на 25 футов',
+          correct: false,
+        },
+        {
+          text: 'MsProDiscuss',
+          correct: true,
+        },
+        {
+          text: 'Тест девяти колышков',
+          correct: true,
+        },
+      ]
+    },
+    analiz: {
+      title: 'Какие анализы необходимо провести особым группам пациентов перед применением сипонимода?',
+      titleDesc: 'Возможно несколько вариантов ответа',
+      qa: [
+        {
+          text: 'Генотипирование по изоферменту CYP2C9 c целью определения метаболического статуса',
+          correct: false,
+        },
+        {
+          text: 'Офтальмологическое обследование',
+          correct: true,
+        },
+        {
+          text: 'Оценка состояния ССС',
+          correct: false,
+        },
+        {
+          text: 'Выявление антител к VZV или подтверждённые данные о перенесенной ветряной оспе или о полном курсе вакцинации против VZV',
+          correct: true,
+        },
+        {
+          text: 'Общий и биохимический анализ крови',
+          correct: false,
+        },
+        {
+          text: 'ЭКГ',
+          correct: true,
+        },
+        {
+          text: 'Уровень АсАТ, АлАТ, билирубин',
+          correct: false,
+        }
+      ]
+    },
+    shema: {
+      title: 'Через сколько месяцев по сравнению с датой первого зафиксированного нарастания неврологических нарушений можно зафиксировать подтверждённое прогрессирование инвалидизации?',
+      titleDesc: 'Возможно несколько вариантов ответа',
+      qa: [
+        {
+          text: 'Через 1 месяц',
+          correct: false,
+        },
+        {
+          text: 'Через 6 месяцев',
+          correct: true,
+        },
+        {
+          text: 'Через 8 месяцев',
+          correct: false,
+        },
+        {
+          text: 'Через 12 месяцев',
+          correct: false,
+        }
+      ]
+    }
+  },
+
   modalSize: 'big',
   showModal: false,
   mask: null,
@@ -71,6 +154,7 @@ const store = reactive({
     bodyDOM.style.overflow = 'visible'
     this.showModal = false
     this.modalTomography = ''
+    this.modalStep = 1
   },
   onMaskClick(event) {
     if (this.mask === event.target) {
@@ -80,17 +164,13 @@ const store = reactive({
   modalClasses() {
     return ['modal-' + this.modalClassActual]
   },
-  modalClassesSize() {
+  modalClassSize() {
     return ['modal-' + this.modalSize]
-  },
-  // maskRef(el) {
-  //   this.mask = el;
-  //   console.log(el);
-  // }
+  }
 })
 
 createApp({
-  finishedPage: 10,
+  finishedPage: 11,
   listNav: [
     'Жалобы',
     'Анамнез',

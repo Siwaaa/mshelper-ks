@@ -1,34 +1,40 @@
-extends ../../layouts/modal.pug
 include ../button/button.pug
 
-block content
-  .modal__main
-    .analyzes
-      //- непонятно как форматировать, единого стиля нет (текст, разделение на 1 и 2)
-      .analyzes-1
-        h4 Обязательное <br> для всех пациентов
-        .analyzes__block
-          each item in listAnaliz['required']
-            .analyzes__wrapper
-              .analyzes__item
-                //- иконки на макете разных размеров. как потом их подгонять?
-                img(src=`./img/analyzes/${item.img}`, alt="")
-                h4= item.title
-                p= item.text
-      .analyzes-2
-        h4 Для особой <br>категории пациентов
-        .analyzes__block
-          each item in listAnaliz['special']
-            .analyzes__wrapper
-              .analyzes__item
-                img(src=`./img/analyzes/${item.img}`, alt="")
-                h4= item.title
-                p= item.text
-  .modal__footer 
-    .modal__footnote
-      p ИМП  Кайендра ЛП -006662 от 21.12.2020. https://grls.rosminzdrav.ru/Grls_View_v2.aspx?routingGuid=56d76c7b-756f-4152-8474-41fe1663c915&t=
-      //- убрать br везде !
-      br 
-      p ОАK, общеклинический анализ крови; АКЛ, абсолютное количество лимфоцитов; AcАТ, Аспартатаминотрансфераза; АлАТ, Аланинаминотрансфераза; ЭКГ, электрокардиография ;  ВГН, верхняя граница нормы АКЛ, Абсолютное количество лимфоцитов 
+div(
+  class="modal__content" 
+  v-if="store.modalClassActual == 'analiz'"
+  :class="store.modalClasses()"
+)
+  div(v-if="store.modalStep < 3" v-effect="store.modalSize = 'mini'")
+    include modal-q.pug
+  div(v-else-if="store.modalStep == 3" v-effect="store.modalSize = 'big'")
+    .modal__main
+      .analyzes
+        //- непонятно как форматировать, единого стиля нет (текст, разделение на 1 и 2)
+        .analyzes-1
+          h4 Обязательное <br> для всех пациентов
+          .analyzes__block
+            each item in listAnaliz['required']
+              .analyzes__wrapper
+                .analyzes__item
+                  //- иконки на макете разных размеров. как потом их подгонять?
+                  img(src=`./img/analyzes/${item.img}`, alt="")
+                  h4= item.title
+                  p= item.text
+        .analyzes-2
+          h4 Для особой <br>категории пациентов
+          .analyzes__block
+            each item in listAnaliz['special']
+              .analyzes__wrapper
+                .analyzes__item
+                  img(src=`./img/analyzes/${item.img}`, alt="")
+                  h4= item.title
+                  p= item.text
+    .modal__footer 
+      .modal__footnote
+        p ИМП  Кайендра ЛП -006662 от 21.12.2020. https://grls.rosminzdrav.ru/Grls_View_v2.aspx?routingGuid=56d76c7b-756f-4152-8474-41fe1663c915&t=
+        //- убрать br везде !
+        br 
+        p ОАK, общеклинический анализ крови; АКЛ, абсолютное количество лимфоцитов; AcАТ, Аспартатаминотрансфераза; АлАТ, Аланинаминотрансфераза; ЭКГ, электрокардиография ;  ВГН, верхняя граница нормы АКЛ, Абсолютное количество лимфоцитов 
 
-    +button('Далее')
+      +button('Далее')(@click="store.currentPage++; store.closeModal()")

@@ -16,7 +16,7 @@ html(lang="ru")
     meta(name="theme-color" content="#000000")
     
   body 
-    div(id="app" class="container" v-scope @vue:mounted="console.log('mounted on: ', $el)" data-activeslide="" ref="rootEl" v-effect="store.rootEl = $refs.rootEl")
+    div(id="app" class="container" v-scope @vue:mounted="console.log('mounted on: ', $el)")
       main
         include ./blocks/se_1.pug
         include ./blocks/se_2.pug
@@ -28,6 +28,7 @@ html(lang="ru")
         include ./blocks/se_8.pug
         include ./blocks/se_9.pug
         include ./blocks/se_10.pug
+        include ./blocks/se_11.pug
       include ./components/footer/footer.pug
       //- include ./components/modal/modal-tomography.pug
       include ./layouts/modal.pug

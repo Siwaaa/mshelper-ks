@@ -1,0 +1,22 @@
+include ../button/button.pug
+
+.modal__header 
+  h4 {{ store.modalQA[store.modalClassActual].title }}
+  p(v-if="store.modalQA[store.modalClassActual].titleDesc") {{ store.modalQA[store.modalClassActual].titleDesc }} 
+
+.modal__main
+  .victorina
+    div(
+      class="victorina__item" 
+      v-for="item of store.modalQA[store.modalClassActual].qa"
+    )
+      include ../checkbox/checkbox.pug
+      label {{ item.text }}
+    
+div(class="modal__footer" style="justify-content: center")
+  div(class="modal__btns" v-if="store.modalStep == 1")
+    +button("Ответить")(@click="store.modalStep = 2")
+
+  div(class="modal__btns" v-if="store.modalStep == 2")
+    +button("Назад")(@click="store.modalStep = 1")
+    +button("Подробнее")(@click="store.modalStep = 3")

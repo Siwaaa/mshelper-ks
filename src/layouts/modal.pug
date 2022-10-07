@@ -47,8 +47,7 @@
   }
 
 div(
-  class="modal-mask" 
-  :class="store.modalClasses()"
+  class="modal-mask"
   ref="maskRef" 
   v-if="store.showModal" 
   @click="store.onMaskClick" 
@@ -57,17 +56,15 @@ div(
   //- убрать модаль биг
   div(
     class="modal"
-    :class="store.modalClassesSize()"
+    :class="store.modalClassSize()"
     role="dialog" 
     :aria-modal="store.showModal" 
-    aria-labelledby="modalLabel" 
   )
-    div(
-      class="modal__content" 
-      id="modalLabel"
-    )
-      //- Содержимое модального окна
-      block content
+    //- Содержимое модального окна
+    include ../components/modal/modal-tomography.pug
+    include ../components/modal/modal-methodsPC.pug
+    include ../components/modal/modal-analiz.pug
+    include ../components/modal/modal-shema.pug
 
     button(
       class="modal__close" 

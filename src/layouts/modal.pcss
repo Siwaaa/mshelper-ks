@@ -2,6 +2,13 @@
   position: relative;
   max-height: 90%;
 
+  &.modal-mini {
+    width: 55%;
+  }
+  &.modal-big {
+    width: 92%;
+  }
+
   &-mask {
     position: fixed;
     top: 0;
@@ -16,6 +23,8 @@
     pointer-events: auto;
     overflow-y: auto;
     overflow-x: hidden;
+
+    animation: fadeIn ease-in-out .5s;
   }
 
   &__close {
@@ -48,12 +57,11 @@
   &__content {
     background-color: var(--color-white);
     border-radius: 10px;
-    padding: 30px 30px 30px 50px;
+    padding: 30px 55px;
   }
 
   &__header {
     text-align: left;
-    width: 98%;
     margin-bottom: 10px;
 
     & > h3 {
@@ -75,23 +83,20 @@
   }
 
   &__main {
-    margin-bottom: 10px;
+    margin-bottom: 38px;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & > .btn:nth-child(2) {
+      margin-left: 14px;
+    }
   }
 }
 
-.victorina {
-  width: max-content;
-  margin-left: auto;
-  margin-right: auto;
-
-  &__item {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    margin-bottom: 20px;
-
-    & > .checkbox {
-      margin-right: 12px;
-    }
-  }
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
 }
