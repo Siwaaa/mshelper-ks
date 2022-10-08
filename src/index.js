@@ -1,10 +1,17 @@
 import { createApp, reactive } from './petite-vue.es.js'
 import { initSwiper } from './components/modal/swiper.js'
 
+document.addEventListener("DOMContentLoaded", startedCheck);
+window.addEventListener('resize', () => { fixVH() });
+
+function startedCheck() {
+  fixVH()
+}
+
 const bodyDOM = document.querySelector('body')
 
 const store = reactive({
-  currentPage: 4,
+  currentPage: 1,
   pagesWithValidation: [
     {
       id: 7,
@@ -212,15 +219,6 @@ createApp({
     'Рекомендации',
     'Результаты лечения'
   ],
-  // tabYears: [
-  //   "2007",
-  //   "2008-2013",
-  //   "2014",
-  //   "2015",
-  //   "2016-2017",
-  //   "2018",
-  //   "2019-2021"
-  // ],
   listTab: [
     {
       "year": "2007",
@@ -315,3 +313,12 @@ e.forEach((e => {
   t.observe(e)
 }
 ))
+
+/*
+* Решение проблемы с высотой моб браузеров
+* with css: height = calc(var(--vh, 1vh) * 100);
+*/
+function fixVH() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
