@@ -18,13 +18,26 @@
     font-weight: 400;
     font-size: 10px;
     text-align: left;
+
+    @media (--sm) {
+      flex-direction: column-reverse;
+    }
   }
   & .modal__footnote {
     max-width: 80%;
+    @media (--sm) {
+      max-width: 100%;
+      margin-top: 13px;
+      font-size: 8px;
+    }
   }
 }
 
 .analyzes {
+
+  @media (--sm) {
+    display: none;
+  }
   /* после уточнения как формируются эти два списка сделать один общий класс */
   &-1, &-2 {
     display: flex;
@@ -36,6 +49,10 @@
       line-height: 1.3;
       color: var(--color-blue);
       order: 3;
+
+      @media (--sm) {
+        text-align: center;
+      }
     }
   }
 
@@ -100,6 +117,35 @@
 
     & > p {
 
+    }
+  }
+
+  &-swiper {
+    display: none;
+
+    @media (--sm) {
+      display: block;
+    }
+
+    & .analyzes-1, & .analyzes-2 {
+      flex-direction: column;
+      & h4 {
+        order: 0;
+        margin-bottom: 10px;
+      }
+    }
+    &__img {
+      width: 100%;
+      max-width: 320px;
+      object-fit: contain;
+    }
+
+    &__pagi {
+      display: none;
+      @media (--sm) {
+        display: block;
+        bottom: -5px !important;
+      }
     }
   }
 }

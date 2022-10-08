@@ -9,7 +9,7 @@ div(
     include modal-q.pug
   div(v-else-if="store.modalStep == 3" v-effect="store.modalSize = 'big'")
     .modal__main
-      div(class="analyzes" v-if="!store.modalAnalizMob")
+      .analyzes
         //- непонятно как форматировать, единого стиля нет (текст, разделение на 1 и 2)
         .analyzes-1
           h4 Обязательное <br> для всех пациентов
@@ -30,19 +30,18 @@ div(
                   img(src=`./img/analyzes/${item.img}`, alt="")
                   h4= item.title
                   p= item.text
-      div(class="analyzes-swiper swiper" v-else)
+      div(class="analyzes-swiper swiper" v-effect="store.localInitSwiper(store.modalClassActual)")
         .swiper-wrapper
           .analyzes-swiper__item.swiper-slide
             .analyzes-1
               h4 Обязательное <br> для всех пациентов
-              .analyzes__block
-                each item in listAnaliz['required']
-                  .analyzes__wrapper
-                    .analyzes__item
-                      //- иконки на макете разных размеров. как потом их подгонять?
-                      img(src=`./img/analyzes/${item.img}`, alt="")
-                      h4= item.title
-                      p= item.text
+              img(src="./img/analyzes/modal-analiz-mob.png" class="analyzes-swiper__img")
+          .analyzes-swiper__item.swiper-slide            
+            .analyzes-2
+              h4 Для особой <br>категории пациентов
+              img(src="./img/analyzes/modal-analiz-mob2.png" class="analyzes-swiper__img")
+      .analyzes-swiper__pagi.swiper-pagination
+
     .modal__footer 
       .modal__footnote
         p ИМП  Кайендра ЛП -006662 от 21.12.2020. https://grls.rosminzdrav.ru/Grls_View_v2.aspx?routingGuid=56d76c7b-756f-4152-8474-41fe1663c915&t=

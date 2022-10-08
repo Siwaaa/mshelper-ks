@@ -136,7 +136,7 @@ const store = reactive({
       this.currentPage++
     } else {
       this.modalClassActual = this.pagesWithValidation.find(el => el.id === this.currentPage).name
-      this.onModal()
+      this.onModal(this.modalClassActual)
     }
   },
   prevPage() {
@@ -150,11 +150,7 @@ const store = reactive({
     this.modalTomography = type
     this.showModal = true
 
-    if (type == 'mrt' || type == 'sled') {
-      setTimeout(() => {
-        this.swiperInstance = initSwiper(type)
-      }, 100)
-    }
+    this.localInitSwiper(type)
   },
   closeModal() {
     bodyDOM.style.overflow = 'visible'
@@ -167,6 +163,14 @@ const store = reactive({
       this.closeModal();
     }
   },
+  localInitSwiper(t) {
+    if (t == 'mrt' || t == 'sled' || t == 'analiz' || t == 'shema') {
+      setTimeout(() => {
+        this.swiperInstance = initSwiper(t)
+        console.log(this.swiperInstance, this.modalTomography);
+      }, 100)
+    }
+  },
   modalClasses() {
     return ['modal-' + this.modalClassActual]
   },
@@ -174,7 +178,6 @@ const store = reactive({
     return ['modal-' + this.modalSize]
   },
   onClickCheckbox(event) {
-    console.log('sd', event);
     const t = event.target
 
     if(this.modalStep === 1) {

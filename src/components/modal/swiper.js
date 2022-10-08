@@ -9,7 +9,6 @@ export function initSwiper(type) {
       slidesPerView: 1,
       spaceBetween: 30,
       grabCursor: true,
-      speed: 800,
       watchSlidesProgress: true,
       preloadImages: false,
       lazy: {
@@ -42,59 +41,60 @@ export function initSwiper(type) {
   
   if (type == 'sled') { 
     return new Swiper('.swiper__sled', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    grabCursor: true,
-    speed: 800,
-    watchSlidesProgress: true,
-    preloadImages: false,
-    lazy: {
-      enabled: true,
-      checkInView: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
+      slidesPerView: 1,
+      spaceBetween: 30,
+      grabCursor: true,
+      watchSlidesProgress: true,
+      preloadImages: false,
+      lazy: {
+        enabled: true,
+        checkInView: true
       },
-      650: {
-        slidesPerView: 2,
-        spaceBetween: 10,
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+        },
+        650: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        // when window width is >= 1100px
+        1100: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        }
       },
-      // when window width is >= 1100px
-      1100: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      }
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: ".swiper__sled_pagi",
-    },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: ".swiper__sled_pagi",
+      },
     })
   }
 
   if (type == 'analiz') { 
     return new Swiper('.analyzes-swiper', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    grabCursor: true,
-    speed: 800,
-    watchSlidesProgress: true,
-    preloadImages: false,
-    lazy: {
-      enabled: true,
-      checkInView: true
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: ".swiper__sled_pagi",
-    },
+      slidesPerView: 1,
+      spaceBetween: 30,
+      grabCursor: true,
+      watchSlidesProgress: true,
+      pagination: {
+        el: ".analyzes-swiper__pagi",
+      },
+    })
+  }
+
+  if (type == 'shema') { 
+    return new Swiper('.shema-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      grabCursor: true,
+      watchSlidesProgress: true,
+      pagination: {
+        el: ".shema-swiper__pagi",
+      },
     })
   }
 }
