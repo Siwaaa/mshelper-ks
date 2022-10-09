@@ -167,7 +167,6 @@ const store = reactive({
     if (t == 'mrt' || t == 'sled' || t == 'analiz' || t == 'shema') {
       setTimeout(() => {
         this.swiperInstance = initSwiper(t)
-        console.log(this.swiperInstance, this.modalTomography);
       }, 100)
     }
   },
