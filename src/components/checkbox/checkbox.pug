@@ -8,7 +8,9 @@ mixin checkbox()
       input(
         class="iin"
         type="checkbox" 
-        v-effect="console.log($refs.checkbox, $el.checked)"
+
       )
     div(role="checkbox"  :class="store.checkboxClasses()")&attributes(attributes)
       span(class="p-checkbox-icon")
+
+            //- v-effect="console.log($refs.checkbox, $el.checked)"

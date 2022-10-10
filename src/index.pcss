@@ -30,13 +30,20 @@ html, body {
   flex-direction: column;
   min-height: 100%;
   line-height: 1.5;
+
+  &-slide {
+    /* высота за вычетом navbar */
+    height: calc(630px - 37px);
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    @media (--md) {
+      height: 94%;
+    }
+  }
 }
 main {
-  /* flex: 1 1 auto; */
-  height: 630px;
-  overflow-x: hidden;
-  overflow-y: auto;
-
+  min-height: 630px;
   @media (--md) {
     /* полная высота за вычетом футера */
     height: calc(var(--vh, 1vh) * 100 - 91px);
@@ -73,13 +80,7 @@ main {
   border-radius: 50%;
   overflow: hidden;
 
-  .se-with-navbar & {
-    top: 18%;
-
-    @media (--lg) {
-      top: 22%;
-    }
-  }
+  .se-with-navbar & {}
 
   @media (--xl) {
     width: 390px;

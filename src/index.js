@@ -1,11 +1,13 @@
 import { createApp, reactive } from './petite-vue.es.js'
 import { initSwiper } from './components/modal/swiper.js'
+import { setNavbarPosition } from './components/navbar/navbar.js';
 
 document.addEventListener("DOMContentLoaded", startedCheck);
 window.addEventListener('resize', () => { fixVH() });
 
 function startedCheck() {
   fixVH()
+  setNavbarPosition()
 }
 
 const bodyDOM = document.querySelector('body')
@@ -131,9 +133,15 @@ const store = reactive({
 
     return res
   },
-  nextPage() {
+  nextPage(target) {
+    if(target == 'modal') {
+      this.currentPage++
+      setNavbarPosition()
+      return
+    }
     if (this.validatedScroll()) {
       this.currentPage++
+      setNavbarPosition()
     } else {
       this.modalClassActual = this.pagesWithValidation.find(el => el.id === this.currentPage).name
       this.onModal(this.modalClassActual)
@@ -141,6 +149,7 @@ const store = reactive({
   },
   prevPage() {
     this.currentPage--
+    setNavbarPosition()
   },
   setTab(i) {
     this.currentTab = i
@@ -183,7 +192,6 @@ const store = reactive({
       t.classList.toggle('c-true')
       t.classList.remove('c-false')
     }
-
   },
   checkboxClasses() {
     return ['checkbox-box']
@@ -206,7 +214,6 @@ const store = reactive({
       el.parentElement.nextSibling.classList.remove('l-false')
     })
   }
-
 })
 
 createApp({
@@ -294,7 +301,6 @@ createApp({
       "footnote": "*https://grls.rosminzdrav.ru/Grls_View_v2.aspx?routingGuid=23024584-cc6d-42ca-b455-2b0808206073"
     },
   ],
-
   store
 }).mount()
 

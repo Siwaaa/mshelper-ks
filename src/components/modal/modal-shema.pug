@@ -37,4 +37,4 @@ div(
       .modal__footnote
           p Клинические рекомендации по рассеянному склерозу 2022
           p https://apicr.minzdrav.gov.ru/api.ashx?op=GetClinrecPdf&id=739_1
-      +button('Далее')(@click="store.currentPage++; store.closeModal()")
+      +button('Далее')(@click="store.nextPage('modal'); store.closeModal()")

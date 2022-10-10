@@ -50,4 +50,4 @@ div(
             p MSProDiscuss
 
     .modal__footer
-      +button("Далее")(@click="store.currentPage++; store.closeModal()")
+      +button("Далее")(@click="store.nextPage('modal'); store.closeModal()")
