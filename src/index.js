@@ -14,6 +14,7 @@ const bodyDOM = document.querySelector('body')
 
 const store = reactive({
   currentPage: 1,
+  finishedPage: 10,
   pagesWithValidation: [
     {
       id: 7,
@@ -47,7 +48,7 @@ const store = reactive({
         },
         {
           text: 'Тест ходьбы на 25 футов',
-          correct: false,
+          correct: true,
         },
         {
           text: 'MsProDiscuss',
@@ -217,7 +218,6 @@ const store = reactive({
 })
 
 createApp({
-  finishedPage: 11,
   listNav: [
     'Жалобы',
     'Анамнез',
@@ -225,8 +225,7 @@ createApp({
     'Сопутствующие заболевания',
     'Заключение',
     'Назначения',
-    'Рекомендации',
-    'Результаты лечения'
+    'Рекомендации'
   ],
   listTab: [
     {

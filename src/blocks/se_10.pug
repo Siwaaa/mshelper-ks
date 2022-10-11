@@ -1,3 +1,14 @@
 include ../components/button/button.pug
 
 section(class="se_10" v-show="store.currentPage == 10")
+
+  .se_10__content.se__content
+    h3.title-h3 Финальный слайд
+
+    .se_10__img-mob.image-mob
+      img(src="./img/se_1.png", alt="")
+
+    +button("Закрыть")
+
+  .se_10__img.image-right 
+    img(src="./img/se_1.png", alt="")

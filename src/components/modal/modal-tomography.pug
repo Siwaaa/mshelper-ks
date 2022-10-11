@@ -14,13 +14,24 @@ div(
       .swiper__mrt.swiper
         .swiper__mrt__content.swiper-wrapper
           //- какое поведение закладывается если нет мрт или оно одно?
-          each val in [1,2,3,4]
-            .swiper__mrt__item.swiper-slide
-              img(src="./img/sw_1.png", alt="")
-              .swiper__mrt__text
-                h4 2007
-                p МРТ головного мозга с контрастным усилением 
-                span Единичный очаг в левом семиовальном центре
+          .swiper__mrt__item.swiper-slide
+            img(src="./img/nophoto.png", alt="")
+            .swiper__mrt__text
+              h4 2007
+              p МРТ головного мозга с контрастным усилением 
+              span Единичный очаг в левом семиовальном центре
+          .swiper__mrt__item.swiper-slide
+            img(src="./img/nophoto.png", alt="")
+            .swiper__mrt__text
+              h4 2014
+              p МРТ головного мозга с контрастным усилением  
+              span Множественные очаги демиелинизации
+          .swiper__mrt__item.swiper-slide
+            img(src="./img/nophoto.png", alt="")
+            .swiper__mrt__text
+              h4 2015
+              p МРТ головного мозга с контрастным усилением 
+              span По сравнению с иссл-ем 22.01.14 появление  4 новых очага
       .swiper-button-next
       .swiper-button-prev
       .swiper-pagination.swiper__mrt_pagi
@@ -28,18 +39,39 @@ div(
       .swiper__sled.swiper
         .swiper__sled__content.swiper-wrapper
           //- какое поведение закладывается если нет мрт или оно одно?
-          each val in [1,2,3,4]
-            .swiper__sled__item.swiper-slide
-              .swiper__sled__text
-                h4 2007
-                .swiper__sled-item
-                  strong 13 мая
-                  p МРТ головного мозга с контрастным усилением 
-                  span Единичный очаг в левом семиовальном центре
-                .swiper__sled-item
-                  strong 4 декабря
-                  p Анализ мочи, БХ анализ крови, гормоны ЩЖ 
-                  span Без  отклонений. 
+          .swiper__sled__item.swiper-slide
+            .swiper__sled__text
+              h4 2017
+              .swiper__sled-item
+                strong 13 мая
+                p ФГ 
+                span Патологии не выявлено. 
+          .swiper__sled__item.swiper-slide
+            .swiper__sled__text
+              h4 2018
+              .swiper__sled-item
+                strong 13 мая
+                p ЭКГ 
+                span ЧСС 67, ритм синусовый, нормальное  положение ЭОС.
+              .swiper__sled-item
+                strong 4 декабря
+                p Анализ мочи, БХ анализ крови, гормоны ЩЖ 
+                span Без  отклонений. 
+          .swiper__sled__item.swiper-slide
+            .swiper__sled__text
+              h4 2021
+              .swiper__sled-item
+                strong 25 мая
+                p ОАК, БХАК, гормоны ЩЖ 
+                span Лейкоцитурия, бактериурия, СОЭ 50
+              .swiper__sled-item
+                strong 10 июля
+                p Антитела к VZV IgG 
+                span 10,15 (иммунитет присутствует) 
+              .swiper__sled-item
+                strong 19 июля
+                p ЭКГ 
+                span Ритм синусовый,ЧСС 72,ЭОС нормальная. 
       .swiper-button-next
       .swiper-button-prev
       .swiper-pagination.swiper__sled_pagi
