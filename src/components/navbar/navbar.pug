@@ -1,7 +1,7 @@
 nav(class="navbar" v-show="store.currentPage >= store.startNavbarPage && store.currentPage <= store.finishedPage - 1")
   ul.navbar__wrapper
     li(
-      v-for="val, index in listNav" 
+      v-for="val, index in store.listNav" 
       class="navbar__item"
     )
       //- доступы к этапам навбара, как они будут выставляться?

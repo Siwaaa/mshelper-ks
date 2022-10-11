@@ -9,7 +9,7 @@ section(
     .timeline
       .timeline__header 
         button(
-          v-for="(val, index) in listTab"
+          v-for="(val, index) in store.listTab"
           type="button"
           class="timeline__tab"
           :class="{ active: store.currentTab == index }"
@@ -27,12 +27,12 @@ section(
 
         .timeline__main-wrap
           ul
-            li(v-for="val in listTab[store.currentTab].ul") {{ val }}
+            li(v-for="val in store.listTab[store.currentTab].ul") {{ val }}
 
-          div(class="timeline__desc" v-if="listTab[store.currentTab].desc") 
-            p {{ listTab[store.currentTab].desc }}
+          div(class="timeline__desc" v-if="store.listTab[store.currentTab].desc") 
+            p {{ store.listTab[store.currentTab].desc }}
 
         p(
           class="timeline__footnote"
-          v-if="listTab[store.currentTab].footnote"
-        ) {{ listTab[store.currentTab].footnote }}
+          v-if="store.listTab[store.currentTab].footnote"
+        ) {{ store.listTab[store.currentTab].footnote }}
