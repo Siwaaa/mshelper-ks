@@ -12,9 +12,20 @@
     height: 100%;
   }
 
+  & .title-h1 {
+    @media (--md) {
+      text-align: center;
+    }
+  }
+
   &__info {
     position: relative;
     margin-top: 7%;
+    max-width: 58%;
+
+    @media (--md) {
+      max-width: none;
+    }
 
     &::before {
       content: '';
@@ -28,7 +39,7 @@
     }
 
     &-item {
-      &:first-child {
+      &:not(:last-child) {
         margin-bottom: 30px;
 
         @media (--sm) {
@@ -41,6 +52,10 @@
       }
       & > strong {
         font-weight: 800;
+      }
+      & > i {
+        font-weight: 500;
+        font-style: italic;
       }
     }
   }
