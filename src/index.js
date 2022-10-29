@@ -90,7 +90,7 @@ const store = reactive({
       "year": "2016-2017",
       "ul": [
         "Без обострений",
-        "МРТ ГМ - многоочаговое поражение демиелинизирующего характера, оценки динамики и КУ в дальнейшем не проводилось  в связи с весом пациентки выше доспустимого для аппарата (более 120кг)"
+        "МРТ ГМ - многоочаговое поражение демиелинизирующего характера, оценки динамики и контрастного усиления в дальнейшем не проводилось  в связи с весом пациентки выше допустимого для аппарата (более 120кг)"
       ],
       "desc": null,
       "footnote": null
@@ -115,6 +115,8 @@ const store = reactive({
     },
   ],
   currentTab: 0,
+  mrtAvailabilityInYears: ["2007", "2014", "2015"],
+  sledAvailabilityInYears: ["2016-2017", "2018", "2019-2021"],
 
   modalTomography: null,
   swiperInstance: null,
@@ -218,6 +220,13 @@ const store = reactive({
     return res
   },
   nextPage(target) {
+    // Проверка для табов анамнез,
+    // если на нем, то кнопка Далее работает переключателем для анамнеза
+    if (this.currentPage == 4 && this.currentTab !== this.listTab.length - 1) {
+      this.currentTab++
+      return
+    }
+
     if (this.validatedScroll() || target == 'modal') {
       const s = this.currentPage++
       setNavbarPosition()
@@ -269,8 +278,7 @@ const store = reactive({
     const t = event.target
 
     if(this.modalStep === 1) {
-      t.classList.toggle('c-true')
-      t.classList.remove('c-false')
+      t.classList.toggle('c-selected')
     }
   },
   checkboxClasses() {
@@ -288,6 +296,7 @@ const store = reactive({
     this.modalStep = 1;
 
     document.querySelectorAll('.checkbox-box').forEach(el => {
+      el.classList.remove('c-selected')
       el.classList.remove('c-true')
       el.classList.remove('c-false')
       el.parentElement.nextSibling.classList.remove('l-true')

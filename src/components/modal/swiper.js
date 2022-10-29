@@ -9,6 +9,9 @@ export function initSwiper(type) {
       slidesPerView: 1,
       spaceBetween: 30,
       grabCursor: true,
+      centerInsufficientSlides: true,
+      centeredSlides: true,
+      centeredSlidesBounds: true,
       watchSlidesProgress: true,
       preloadImages: false,
       lazy: {
@@ -44,6 +47,9 @@ export function initSwiper(type) {
       slidesPerView: 1,
       spaceBetween: 30,
       grabCursor: true,
+      centerInsufficientSlides: true,
+      centeredSlides: true,
+      centeredSlidesBounds: true,
       watchSlidesProgress: true,
       preloadImages: false,
       lazy: {

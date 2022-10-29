@@ -5,3 +5,4 @@ footer.footer
     .footer__btns 
       +button("Назад")(v-if="store.currentPage > 1" @click="store.prevPage()")
       +button("Далее")(v-if="store.currentPage != store.finishedPage" @click="store.nextPage()")
+      +button("В начало")(v-if="store.currentPage == store.finishedPage" @click="store.currentPage = 1" class="btn-not-icon")

@@ -2,7 +2,7 @@ include ../components/tomography-button/tomography.pug
 
 section(
   class="se_4" 
-  v-show="store.currentPage == 4" 
+  v-show="store.currentPage == 4"
   v-effect="if(store.currentPage == 4) store.modalClassActual = 'tomography' "
 )
   .se_4__content
@@ -18,10 +18,17 @@ section(
       .timeline__main
 
         .timeline__tomography 
-          .timeline__tomography-item
+          div(
+            class="timeline__tomography-item" 
+            v-if="store.mrtAvailabilityInYears.includes(store.listTab[store.currentTab].year)"
+          )
             +tomography-button('mrt.png', 'mrt')
             span МРТ
-          .timeline__tomography-item
+
+          div(
+            class="timeline__tomography-item" 
+            v-if="store.sledAvailabilityInYears.includes(store.listTab[store.currentTab].year)"
+          )
             +tomography-button('mrt_2.svg', 'sled')
             span Исследование 
 

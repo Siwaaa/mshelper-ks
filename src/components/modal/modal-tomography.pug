@@ -14,20 +14,20 @@ div(
       .swiper__mrt.swiper
         .swiper__mrt__content.swiper-wrapper
           //- какое поведение закладывается если нет мрт или оно одно?
-          .swiper__mrt__item.swiper-slide
-            img(src="./img/nophoto.png", alt="")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2007'")
+            img(src="./img/nophoto-mrt.png", alt="")
             .swiper__mrt__text
               h4 2007
               p МРТ головного мозга с контрастным усилением 
               span Единичный очаг в левом семиовальном центре
-          .swiper__mrt__item.swiper-slide
-            img(src="./img/nophoto.png", alt="")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2014'")
+            img(src="./img/nophoto-mrt.png", alt="")
             .swiper__mrt__text
               h4 2014
               p МРТ головного мозга с контрастным усилением  
               span Множественные очаги демиелинизации
-          .swiper__mrt__item.swiper-slide
-            img(src="./img/nophoto.png", alt="")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2015'")
+            img(src="./img/nophoto-mrt.png", alt="")
             .swiper__mrt__text
               h4 2015
               p МРТ головного мозга с контрастным усилением 
@@ -39,14 +39,14 @@ div(
       .swiper__sled.swiper
         .swiper__sled__content.swiper-wrapper
           //- какое поведение закладывается если нет мрт или оно одно?
-          .swiper__sled__item.swiper-slide
+          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2016-2017'")
             .swiper__sled__text
               h4 2017
               .swiper__sled-item
                 strong 13 мая
                 p ФГ 
                 span Патологии не выявлено. 
-          .swiper__sled__item.swiper-slide
+          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2018'")
             .swiper__sled__text
               h4 2018
               .swiper__sled-item
@@ -57,7 +57,7 @@ div(
                 strong 4 декабря
                 p Анализ мочи, БХ анализ крови, гормоны ЩЖ 
                 span Без  отклонений. 
-          .swiper__sled__item.swiper-slide
+          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2019-2021'")
             .swiper__sled__text
               h4 2021
               .swiper__sled-item
