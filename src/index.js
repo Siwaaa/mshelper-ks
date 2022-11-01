@@ -36,7 +36,7 @@ const store = reactive({
     'Сопутствующие заболевания',
     'Заключение',
     'Назначения',
-    'Рекомендации'
+    'Результаты лечения'
   ],
   startNavbarPage: 3,
   currentNavbarPage: 1,
