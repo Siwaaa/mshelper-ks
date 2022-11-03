@@ -41,6 +41,20 @@
     & > h4 {
       font-weight: 700;
     }
+    & li {
+      list-style-type: disc;
+      list-style-position: outside;
+      margin-bottom: 30px;
+      margin-left: 20px;
+
+      @media (--md) {
+        margin-bottom: 10px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__msprodiscuss {
