@@ -101,6 +101,18 @@ export function initSwiper(type) {
     })
   }
 
+  if (type == 'nevro') { 
+    return new Swiper('.nevro-swiper', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      grabCursor: true,
+      watchSlidesProgress: true,
+      pagination: {
+        el: ".nevro-swiper__pagi",
+      },
+    })
+  }
+
   if (type == 'swiper-mrt-2021') { 
     return new Swiper('#swiper-mrt-2021', {
       slidesPerView: 1,
