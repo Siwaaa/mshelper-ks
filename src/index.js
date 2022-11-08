@@ -29,6 +29,12 @@ const store = reactive({
     //   name: 'shema'
     // },
   ],
+  anamnezWithValidation: [
+    {
+      id: 8,
+      name: 'result'
+    },
+  ],
   listNav: [
     'Жалобы',
     'Анамнез',
@@ -121,84 +127,28 @@ const store = reactive({
   modalClassActual: null,
   modalStep: 1,
   modalQA: {
-    methodsPC: {
-      title: 'Какие методы, кроме шкалы EDSS можно использовать для оценки прогрессиирования заболевания?',
+    result: {
+      title: 'С какими препаратами сипонимод следует одновременно принимать с осторожностью? ',
       titleDesc: 'Возможно несколько вариантов ответа',
       qa: [
         {
-          text: 'SDMT',
+          text: 'Противоопухолевые',
           correct: true,
         },
         {
-          text: 'Тест ходьбы на 25 футов',
+          text: 'Иммуномодулирующие',
+          correct: false,
+        },
+        {
+          text: 'Иммуносупрессивные',
           correct: true,
         },
         {
-          text: 'MsProDiscuss',
-          correct: true,
-        },
-        {
-          text: 'Тест девяти колышков',
+          text: 'Бета-адреноблокаторы',
           correct: true,
         },
       ]
     },
-    analiz: {
-      title: 'Какие анализы необходимо провести особым группам пациентов перед применением сипонимода?',
-      titleDesc: 'Возможно несколько вариантов ответа',
-      qa: [
-        {
-          text: 'Генотипирование по изоферменту CYP2C9 c целью определения метаболического статуса',
-          correct: false,
-        },
-        {
-          text: 'Офтальмологическое обследование',
-          correct: true,
-        },
-        {
-          text: 'Оценка состояния ССС',
-          correct: false,
-        },
-        {
-          text: 'Выявление антител к VZV или подтверждённые данные о перенесенной ветряной оспе или о полном курсе вакцинации против VZV',
-          correct: true,
-        },
-        {
-          text: 'Общий и биохимический анализ крови',
-          correct: false,
-        },
-        {
-          text: 'ЭКГ',
-          correct: true,
-        },
-        {
-          text: 'Уровень АсАТ, АлАТ, билирубин',
-          correct: false,
-        }
-      ]
-    },
-    shema: {
-      title: 'Через сколько месяцев по сравнению с датой первого зафиксированного нарастания неврологических нарушений можно зафиксировать подтверждённое прогрессирование инвалидизации?',
-      titleDesc: '',
-      qa: [
-        {
-          text: 'Через 1 месяц',
-          correct: false,
-        },
-        {
-          text: 'Через 6 месяцев',
-          correct: true,
-        },
-        {
-          text: 'Через 8 месяцев',
-          correct: false,
-        },
-        {
-          text: 'Через 12 месяцев',
-          correct: false,
-        }
-      ]
-    }
   },
 
   modalSize: 'big',
@@ -213,6 +163,9 @@ const store = reactive({
     this.pagesWithValidation.forEach(el => {
       if (el.id == this.currentPage) res = false
     })
+    this.anamnezWithValidation.forEach(el => {
+      if (el.id == this.currentTab) res = false
+    })
 
     return res
   },
@@ -220,8 +173,16 @@ const store = reactive({
     // Проверка для табов анамнез,
     // если на нем, то кнопка Далее работает переключателем для анамнеза
     if (this.currentPage == 4 && this.currentTab !== this.listTab.length - 1) {
-      this.currentTab++
-      return
+      if (this.validatedScroll() || target == 'modal') {
+        this.currentTab++
+        console.log(this.modalClassActual);
+        return
+      } else {
+        console.log('mmmmm');
+        this.modalClassActual = this.anamnezWithValidation.find(el => el.id === this.currentTab).name
+        this.onModal(this.modalClassActual)
+        return
+      }
     }
 
     if (this.validatedScroll() || target == 'modal') {

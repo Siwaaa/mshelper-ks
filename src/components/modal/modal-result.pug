@@ -1,0 +1,21 @@
+include ../button/button.pug
+
+div(
+  class="modal__content" 
+  v-if="store.modalClassActual == 'result'"
+  :class="store.modalClasses()"
+)
+  div(v-if="store.modalStep < 3" v-effect="store.modalSize = 'mini'")
+    include modal-q.pug
+  div(v-else-if="store.modalStep == 3" v-effect="store.modalSize = 'big'")
+    .modal__main
+      .result 
+        .result__text
+          h3.title-h3 Результат
+          p Принимая во внимание механизм действия алемтузумаба, а также описанный в инструкции по его применению иммуносупрессивный эффект, применение препарата Кайендра® после курса терапии алемтузумабом <b>не рекомендовано, за исключением случаев, когда ожидаемая польза отчетливо превышает возможный риск</b> у конкретного пациента. 
+        .result__img 
+          img(src="./img/result.png", alt="Результат")
+    .modal__footer 
+      .modal__footnote
+          p ИМП препарата Кайендра
+      +button('Далее')(@click="store.nextPage('modal'); store.closeModal()")
