@@ -31,15 +31,31 @@ section(
           )
             +tomography-button('mrt_2.svg', 'sled')
             span Исследование 
+        
+        div(class="timeline__main-wrap" v-html="store.listTab[store.currentTab].html")
+        //- .timeline__main-wrap
 
-        .timeline__main-wrap
-          ul
-            li(v-for="val in store.listTab[store.currentTab].ul") {{ val }}
+        //-   h4 Весна
+        //-   ul.low-margin 
+        //-     li Весна 2021 года (EDSS=5.5) – диагностирован ВПРС. На основании жалоб, анамнестических сведений, данных неврологического осмотра и дополнительных методов обследования поставлен диагноз: Рассеянный склероз, вторично прогрессирующее течение, без обострений, стабилизация.
+          
+        //-   h4 Март 
+        //-   ul.low-margin 
+        //-     li EDSS 5,5
 
-          div(class="timeline__desc" v-if="store.listTab[store.currentTab].desc") 
-            p {{ store.listTab[store.currentTab].desc }}
+        //-   h4 Июль 
+        //-   ul.low-margin 
+        //-     li EDSS 5,5 (выставлен по 6мППИ: отмечено усиление неврологического дефицита с 4,5 до 5,5 баллов за 6 месяцев при отсутствии обострений).
 
-        p(
-          class="timeline__footnote"
-          v-if="store.listTab[store.currentTab].footnote"
-        ) {{ store.listTab[store.currentTab].footnote }}
+
+        //- .timeline__main-wrap
+        //-   ul
+        //-     li(v-for="val in store.listTab[store.currentTab].ul") {{ val }}
+
+        //-   div(class="timeline__desc" v-if="store.listTab[store.currentTab].desc") 
+        //-     p {{ store.listTab[store.currentTab].desc }}
+
+        //- p(
+        //-   class="timeline__footnote"
+        //-   v-if="store.listTab[store.currentTab].footnote"
+        //- ) {{ store.listTab[store.currentTab].footnote }}

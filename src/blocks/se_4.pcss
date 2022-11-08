@@ -20,24 +20,20 @@
   }
 
   &__tab {
-    width: 113px;
+    width: 85px;
     height: 35px;
     margin-right: 12px;
     font-weight: 800;
+    font-size: 16px;
     color:rgba(31, 46, 77, 0.5);
     transition: color .3s ease;
 
-    @media (--lg) {
-      width: 85px;
-    }
     @media (--md) {
       width: auto;
+      font-size: 12px;
       padding-left: 10px;
       padding-right: 10px;
       margin-right: 4px;
-    }
-    @media (--sm) {
-      font-size: 12px;
     }
     @media (--xs) {
       font-size: 8px;
@@ -97,9 +93,11 @@
       max-width: 800px;
       width: 80%;
       margin-bottom: 30px;
+      padding-top: 50px;
 
       @media (--lg) {
         width: 86%;
+        padding-top: 0;
       }
       @media (--sm) {
         width: 80%;
@@ -107,15 +105,35 @@
       @media (--xs) {
         width: 76%;
       }
+
+      & > h3 {
+        font-weight: 800;
+        font-size: 21px;
+        line-height: 1.5;
+        color: var(--color-blue);
+        margin-bottom: 30px;
+
+        @media (--md) {
+          font-size: 16px;
+        }
+      }
+      & > h4 {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.5;
+        margin-bottom: 10px;
+
+        @media (--md) {
+          font-size: 16px;
+        }
+
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
+      }
     }
 
     & ul {
-      margin-top: 50px;
-
-      @media (--lg) {
-        margin-top: 0;
-      }
-
       & > li {
         list-style-type: disc;
         list-style-position: outside;
@@ -123,6 +141,12 @@
         margin-left: 20px;
   
         &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      &.low-margin {
+        & > li {
           margin-bottom: 0;
         }
       }

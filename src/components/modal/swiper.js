@@ -60,14 +60,10 @@ export function initSwiper(type) {
         320: {
           slidesPerView: 1,
         },
-        650: {
-          slidesPerView: 2,
-          spaceBetween: 10,
-        },
         // when window width is >= 1100px
         1100: {
-          slidesPerView: 3,
-          spaceBetween: 30,
+          slidesPerView: 'auto',
+          spaceBetween: 100,
         }
       },
       navigation: {
@@ -76,6 +72,7 @@ export function initSwiper(type) {
       },
       pagination: {
         el: ".swiper__sled_pagi",
+        clickable: true
       },
     })
   }
@@ -103,4 +100,31 @@ export function initSwiper(type) {
       },
     })
   }
+
+  if (type == 'swiper-mrt-2021') { 
+    return new Swiper('#swiper-mrt-2021', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      nested: true,
+      watchSlidesProgress: true,
+      pagination: {
+        el: ".swiper__mrt__item-pagination",
+        clickable: true
+      },
+    })
+  }
+
+  if (type == 'swiper-mrt-2022') { 
+    return new Swiper('#swiper-mrt-2022', {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      grabCursor: true,
+      nested: true,
+      watchSlidesProgress: true,
+      pagination: {
+        el: ".swiper__mrt__item-pagination",
+        clickable: true
+      },
+    })
+  } 
 }

@@ -7,71 +7,103 @@ div(
   v-effect="store.modalSize = 'big'"
 )
   .modal__header 
-    h3 {{ store.modalTomography == 'mrt' ? 'МРТ в динамике' :  'Результаты проведенных исследований' }}
+    h3 {{ store.modalTomography == 'mrt' ? 'МРТ в динамике' :  'Анализы 2019-2020' }}
 
   .modal__main
     div(class="sw_1" v-if="store.modalTomography === 'mrt'")
       .swiper__mrt.swiper
         .swiper__mrt__content.swiper-wrapper
-          //- какое поведение закладывается если нет мрт или оно одно?
-          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2007'")
-            img(src="./img/nophoto-mrt.png", alt="")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2004'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
             .swiper__mrt__text
-              h4 2007
-              p МРТ головного мозга с контрастным усилением 
-              span Единичный очаг в левом семиовальном центре
-          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2014'")
-            img(src="./img/nophoto-mrt.png", alt="")
+              h4 2004
+              //- p
+              span По МРТ грудного отдела спинного мозга выдвинуто предположение о сирингомиелии.
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2006'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
             .swiper__mrt__text
-              h4 2014
-              p МРТ головного мозга с контрастным усилением  
-              span Множественные очаги демиелинизации
+              h4 Апрель 2006 
+              span МРТ головного мозга и спинного мозга – выявлены   очаговые изменения.
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2007-2014'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            .swiper__mrt__text
+              h4 2007-2014
+              span По данным МРТ отрицательной динамики не наблюдается.
           div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2015'")
-            img(src="./img/nophoto-mrt.png", alt="")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
             .swiper__mrt__text
-              h4 2015
-              p МРТ головного мозга с контрастным усилением 
-              span По сравнению с иссл-ем 22.01.14 появление  4 новых очага
+              h4 Июнь 2015
+              span Отрицательная динамика в виде появления новых активных очагов как в головном мозге, так и на шейном уровне спинного мозга.
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2016'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            .swiper__mrt__text
+              h4 Июнь 2016 
+              span МРТ отрицательная динамика в вид появления нового активного очага.
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2018'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            .swiper__mrt__text
+              h4 2018
+              span Отрицательной динамики нет.
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2019'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            .swiper__mrt__text
+              h4 2019
+              span Отрицательной динамики нет <br>Мр-картина многоочагового демиелинизирующего поражения головного мозга (супра- и инфратенториально, с вовлечением мозолистого тела) и спинного мозга (на уровне ГОП). Данных о нарушении целостности ГЭБ на исследуемых уровнях не получено. При визуальном сравнении с исследованием от 21.10.2018 г – существенной динамики в количестве и размерах очагов не отмечено.
+              button(type="button" class="text-accordion" @click="store.readMore($event)")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2019'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            .swiper__mrt__text
+              h4 3 сентября 2019
+              span Мр-картина многоочагового демиелинизирующего поражения головного мозга (супра- и инфратенториально, с вовлечением мозолистого тела) и спинного мозга (на уровне ГОП). Данных о нарушении целостности ГЭБ на исследуемых        уровнях не получено. При визуальном сравнении с исследованием от 21.10.2018 г – существенной динамики в количестве и размерах очагов не отмечено.
+              button(type="button" class="text-accordion" @click="store.readMore($event)")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2021'")
+            img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            .swiper__mrt__text
+              h4 2021
+              span Мр-картина многоочагового демиелинизирующего поражения вещества головного мозга с супра- и инфратенториальной локализацией очагов и вовлечением в процесс мозолистого тела. Данных о нарушении целостности  ГЭБ не получено. При сравнении с исследованием от 03.09.2019 г – без отрицательной динамики. 
+              button(type="button" class="text-accordion" @click="store.readMore($event)")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2021'" v-effect="store.localInitSwiper('swiper-mrt-2021')")
+            //- img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            #swiper-mrt-2021.swiper__mrt__item-img.swiper
+              .swiper-wrapper
+                .swiper-slide 
+                  img(src="./img/snapshots/1.png", alt="")
+                .swiper-slide 
+                  img(src="./img/snapshots/2.png", alt="")
+                .swiper-slide 
+                  img(src="./img/snapshots/3.png", alt="")
+            .swiper-pagination.swiper__mrt__item-pagination
+            .swiper__mrt__text
+              h4 9 марта 2021
+              span Мр-картина многоочагового демиелинизирующего поражения вещества головного мозга с супра- и инфратенториальной локализацией очагов и вовлечением в процесс мозолистого тела. Данных о нарушении целостности ГЭБ не получено. При сравнении с исследованием от 03.09.2019г – без отрицательной динамики. 
+              button(type="button" class="text-accordion" @click="store.readMore($event)")
+          div(class="swiper__mrt__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2022'" v-effect="store.localInitSwiper('swiper-mrt-2022')")
+            //- img(src="./img/nophoto-mrt.png" class="swiper__mrt__item-img")
+            #swiper-mrt-2022.swiper__mrt__item-img.swiper
+              .swiper-wrapper
+                .swiper-slide 
+                  img(src="./img/snapshots/1.png", alt="")
+                .swiper-slide 
+                  img(src="./img/snapshots/2.png", alt="")
+                .swiper-slide 
+                  img(src="./img/snapshots/3.png", alt="")
+            .swiper-pagination.swiper__mrt__item-pagination
+            .swiper__mrt__text
+              h4 Март 2022
+              span Мр-картина многоочагового демиелинизирующего поражения вещества головного мозга с супра- и инфратенториальной локализацией очагов и вовлечением в процесс мозолистого тела. Данных о нарушении целостности ГЭБ не получено. При сравнении с исследованием от 03.09.2019г – без отрицательной динамики.
+              button(type="button" class="text-accordion" @click="store.readMore($event)")
       .swiper-button-next
       .swiper-button-prev
       .swiper-pagination.swiper__mrt_pagi
     div(class="sw_2" v-if="store.modalTomography === 'sled'")
       .swiper__sled.swiper
         .swiper__sled__content.swiper-wrapper
-          //- какое поведение закладывается если нет мрт или оно одно?
-          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2016-2017'")
-            .swiper__sled__text
-              h4 2017
-              .swiper__sled-item
-                strong 13 мая
-                p ФГ 
-                span Патологии не выявлено. 
-          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2018'")
-            .swiper__sled__text
-              h4 2018
-              .swiper__sled-item
-                strong 13 мая
-                p ЭКГ 
-                span ЧСС 67, ритм синусовый, нормальное  положение ЭОС.
-              .swiper__sled-item
-                strong 4 декабря
-                p Анализ мочи, БХ анализ крови, гормоны ЩЖ 
-                span Без  отклонений. 
-          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2019-2021'")
-            .swiper__sled__text
-              h4 2021
-              .swiper__sled-item
-                strong 25 мая
-                p ОАК, БХАК, гормоны ЩЖ 
-                span Лейкоцитурия, бактериурия, СОЭ 50
-              .swiper__sled-item
-                strong 10 июля
-                p Антитела к VZV IgG 
-                span 10,15 (иммунитет присутствует) 
-              .swiper__sled-item
-                strong 19 июля
-                p ЭКГ 
-                span Ритм синусовый,ЧСС 72,ЭОС нормальная. 
+          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2019'" data-sledbasis="0.5")
+            img(src="./img/issled/1.svg" class="swiper__sled__img")
+          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2019'" data-sledbasis="0.5")
+            img(src="./img/issled/2.svg" class="swiper__sled__img")
+          div(class="swiper__sled__item swiper-slide" v-if="store.listTab[store.currentTab].year == '2019'" data-sledbasis="1")
+            img(src="./img/issled/3.svg" class="swiper__sled__img")
       .swiper-button-next
       .swiper-button-prev
       .swiper-pagination.swiper__sled_pagi
