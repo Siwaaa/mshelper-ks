@@ -13,7 +13,7 @@ function startedCheck() {
 const bodyDOM = document.querySelector('body')
 
 const store = reactive({
-  currentPage: 4,
+  currentPage: 1,
   finishedPage: 8,
   pagesWithValidation: [
     // {
