@@ -20,7 +20,6 @@ section(
         .timeline__tomography 
           div(
             class="timeline__tomography-item" 
-            v-if="store.mrtAvailabilityInYears.includes(store.listTab[store.currentTab].year)"
           )
             +tomography-button('mrt.png', 'mrt')
             span МРТ
