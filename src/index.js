@@ -237,6 +237,13 @@ const store = reactive({
     }
   },
   prevPage() {
+    // Проверка для табов анамнез,
+    // если на нем, то кнопка Назад работает переключателем для анамнеза
+    if (this.currentPage == 4 && this.currentTab !== 0) {
+      this.currentTab--
+      return
+    }
+
     this.currentPage--
     setNavbarPosition()
   },
@@ -288,8 +295,9 @@ const store = reactive({
     this.modalStep = 2;
 
     document.querySelectorAll('.checkbox-box').forEach(el => {
-      el.classList.add('c-' + el.ariaChecked)
-      el.parentElement.nextSibling.classList.add('l-' + el.ariaChecked)
+      console.log(el);
+      el.classList.add('c-' + el.getAttribute("aria-checked"))
+      el.parentElement.nextSibling.classList.add('l-' + el.getAttribute("aria-checked"))
     })
   },
   backCheckboxAnswer() {
