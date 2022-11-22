@@ -74,6 +74,15 @@ export function initSwiper(type) {
         el: ".swiper__sled_pagi",
         clickable: true
       },
+      on: {
+        activeIndexChange: function () {
+          if(this.activeIndex > 0) {
+            document.getElementById('modal-t-title').innerHTML = 'Анализы 2019-2020'
+          } else {
+            document.getElementById('modal-t-title').innerHTML = 'Динамика по шкале EDSS'
+          }
+        }
+      }
     })
   }
 
@@ -111,6 +120,17 @@ export function initSwiper(type) {
         el: ".swiper__mrt__item-pagination",
         clickable: true
       },
+      on: {
+        click: function (s, e) {
+          const instance = basicLightbox.create(`
+            <img 
+              style="width: 100%; object-fit: contain;" 
+              src="${e.target.getAttribute("src")}"
+            >
+          `)
+          instance.show()
+        }
+      }
     })
   }
 

@@ -137,7 +137,7 @@ const store = reactive({
         },
         {
           text: 'Иммуномодулирующие',
-          correct: false,
+          correct: true,
         },
         {
           text: 'Иммуносупрессивные',

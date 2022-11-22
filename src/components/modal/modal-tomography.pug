@@ -7,7 +7,7 @@ div(
   v-effect="store.modalSize = 'big'"
 )
   .modal__header 
-    h3 {{ store.modalTomography == 'mrt' ? 'МРТ в динамике' :  'Анализы 2019-2020' }}
+    h3#modal-t-title {{ store.modalTomography == 'mrt' ? 'МРТ в динамике' :  'Динамика по шкале EDSS' }}
 
   .modal__main
     div(class="sw_1" v-if="store.modalTomography === 'mrt'")
@@ -67,11 +67,11 @@ div(
             #swiper-mrt-2021.swiper__mrt__item-img.swiper
               .swiper-wrapper
                 .swiper-slide 
-                  img(src="./img/snapshots/1.png", alt="")
+                  img(src="./img/snapshots/1.png" style="height: auto")
                 .swiper-slide 
-                  img(src="./img/snapshots/2.png", alt="")
+                  img(src="./img/snapshots/2.png" style="height: auto")
                 .swiper-slide 
-                  img(src="./img/snapshots/3.png", alt="")
+                  img(src="./img/snapshots/3.png" style="height: auto")
             .swiper-pagination.swiper__mrt__item-pagination
             .swiper__mrt__text
               h4 9 марта 2021
@@ -83,12 +83,12 @@ div(
     div(class="sw_2" v-if="store.modalTomography === 'sled'")
       .swiper__sled.swiper
         .swiper__sled__content.swiper-wrapper
+          div(class="swiper__sled__item swiper-slide" v-if="store.currentTab > 6" data-sledbasis="1")
+              img(src="./img/issled/3.svg" class="swiper__sled__img")
           div(class="swiper__sled__item swiper-slide" v-if="store.currentTab > 6" data-sledbasis="0.5")
             img(src="./img/issled/1.svg" class="swiper__sled__img")
           div(class="swiper__sled__item swiper-slide" v-if="store.currentTab > 6" data-sledbasis="0.5")
             img(src="./img/issled/2.svg" class="swiper__sled__img")
-          div(class="swiper__sled__item swiper-slide" v-if="store.currentTab > 6" data-sledbasis="1")
-            img(src="./img/issled/3.svg" class="swiper__sled__img")
       .swiper-button-next
       .swiper-button-prev
       .swiper-pagination.swiper__sled_pagi
