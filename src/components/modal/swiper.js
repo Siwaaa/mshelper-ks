@@ -33,8 +33,8 @@ export function initSwiper(type) {
         }
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next-mrt',
+        prevEl: '.swiper-button-prev-mrt',
       },
       pagination: {
         el: ".swiper__mrt_pagi",
@@ -116,6 +116,10 @@ export function initSwiper(type) {
       spaceBetween: 30,
       nested: true,
       watchSlidesProgress: true,
+      navigation: {
+        nextEl: '.swiper-button-next-2021',
+        prevEl: '.swiper-button-prev-2021',
+      },
       pagination: {
         el: ".swiper__mrt__item-pagination",
         clickable: true

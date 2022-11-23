@@ -77,8 +77,10 @@ div(
               h4 9 марта 2021
               span Мр-картина многоочагового демиелинизирующего поражения вещества головного мозга с супра- и инфратенториальной локализацией очагов и вовлечением в процесс мозолистого тела. Данных о нарушении целостности ГЭБ не получено. При сравнении с исследованием от 03.09.2019г – без отрицательной динамики. 
               button(type="button" class="text-accordion" @click="store.readMore($event)")
-      .swiper-button-next
-      .swiper-button-prev
+            .swiper-button-next.swiper-button-next-2021
+            .swiper-button-prev.swiper-button-prev-2021
+      .swiper-button-next.swiper-button-next-mrt
+      .swiper-button-prev.swiper-button-prev-mrt
       .swiper-pagination.swiper__mrt_pagi
     div(class="sw_2" v-if="store.modalTomography === 'sled'")
       .swiper__sled.swiper
