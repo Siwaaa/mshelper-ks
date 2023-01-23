@@ -188,7 +188,7 @@ const store = reactive({
     if (this.validatedScroll() || target == 'modal') {
       const s = this.currentPage++
       setNavbarPosition()
-      ym(90738866,'reachGoal','go_to_slide_' + s)
+      ym(91328042,'reachGoal','go_to_slide_' + s)
     } else {
       this.modalClassActual = this.pagesWithValidation.find(el => el.id === this.currentPage).name
       this.onModal(this.modalClassActual)
